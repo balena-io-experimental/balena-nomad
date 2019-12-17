@@ -1,0 +1,12 @@
+FROM balenalib/raspberrypi3-debian
+
+WORKDIR /usr/src
+
+# Get nomad
+RUN install_packages wget unzip
+RUN wget https://releases.hashicorp.com/nomad/0.10.2/nomad_0.10.2_linux_arm.zip
+RUN unzip nomad_0.10.2_linux_arm.zip
+
+COPY start.sh start.sh
+RUN chmod +x /usr/src/start.sh
+CMD ["/bin/bash", "/usr/src/start.sh"]

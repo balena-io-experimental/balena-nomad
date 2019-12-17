@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  nomad:
+    build: .
+    privileged: true
+    labels:
+      io.balena.features.balena-socket: '1'
+      io.balena.features.firmware: '1'
+      io.balena.features.dbus: '1'
+      io.balena.features.supervisor-api: '1'
+      io.balena.features.balena-api: '1'
